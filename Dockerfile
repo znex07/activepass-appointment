@@ -1,7 +1,7 @@
 FROM composer:2.1.3 as build
 WORKDIR /app
 COPY . /app
-RUN add apk
+# RUN add apk
 RUN composer install
 
 FROM php:7.4-apache-stretch
