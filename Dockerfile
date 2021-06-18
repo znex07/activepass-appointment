@@ -2,9 +2,10 @@ FROM composer:2.1.3 as build
 WORKDIR /app
 COPY . /app
 # RUN add apk
+RUN composer update
 RUN composer install
 
-FROM php:8.0-apache-stretch
+FROM php:7.3-apache-stretch
 RUN docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 8080
